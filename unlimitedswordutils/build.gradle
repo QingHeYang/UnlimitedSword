@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.QingHeYang'
+android {
+    compileSdkVersion 24
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 24
+
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    api 'com.android.support:appcompat-v7:24.+'
+    api fileTree(include: ['*.aar', '*.jar'], exclude: [], dir: 'libs')
+    api files('libs/glide-3.7.0.jar')
+    api files('libs/gson-2.8.2.jar')
+    api files('libs/reactive-streams-1.0.2.jar')
+    api files('libs/ijkplayer-armv7a-0.8.4.jar')
+    api files('libs/ijkplayer-java-0.8.4.jar')
+    api files('libs/rxpermissions-0.9.5.jar')
+    api files('libs/rxandroid-2.0.1.jar')
+    api files('libs/rxjava-2.0.4.jar')
+    api files('libs/ijkplayer-x86-0.8.4.jar')
+
+}
+
